@@ -31,7 +31,6 @@ async function getLanyardData() {
             dot.style.boxShadow = `0 0 12px ${color}`;
 
             /* 2. setup activity & time variables */
-            // Check for VS Code specifically within the activities array
             const vscode = activities.find(a => a.name === "Visual Studio Code" || a.application_id === "383226320970055681");
             const game = activities.find(a => a.type === 0 && a.name !== "Visual Studio Code"); 
             const spotify = data.listening_to_spotify ? data.spotify : null;
@@ -42,8 +41,12 @@ async function getLanyardData() {
                 timeZone: 'Asia/Kuala_Lumpur'
             }).format(new Date());
 
+            const now = new Date();
+            const day = now.getDay();
             const hour = parseInt(malaysiaTime);
-            const isWorkingHours = hour >= 8 && hour < 17;
+            
+            // working time monday-F=friday, 8am-5pm
+            const isWorkingHours = (day >= 1 && day <= 5) && (hour >= 8 && hour < 17);
 
             /* 3. handle presence with logic overrides */
 
@@ -51,7 +54,6 @@ async function getLanyardData() {
             if (vscode) {
                 moodText.innerText = "coding 💻";
                 activityLabel.innerText = "currently:";
-                // Use the detail from VS Code presence if available, otherwise fallback
                 trackText.innerText = vscode.details || "random coding project";
                 updateActivityImage(vscode);
                 musicCard.classList.add('playing');
@@ -113,7 +115,6 @@ function updateActivityImage(activity) {
         let imageId = activity.assets.large_image;
         let url = "";
 
-        // Handle external images (like VS Code file icons)
         if (imageId.startsWith("mp:external")) {
             url = imageId.replace(/mp:external\/.*?\/(https?)\//, '$1://');
         } else {
@@ -122,7 +123,6 @@ function updateActivityImage(activity) {
         
         iconSlot.innerHTML = `<img src="${url}" style="width:40px; height:40px; border-radius:10px; object-fit:cover;">`;
     } else {
-        // Fallback icon based on activity type
         const iconName = activity.name === "Visual Studio Code" ? "code-2" : "gamepad-2";
         iconSlot.innerHTML = `<i data-lucide="${iconName}" class="spotify-icon"></i>`;
         lucide.createIcons();
