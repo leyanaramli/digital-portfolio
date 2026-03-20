@@ -46,7 +46,7 @@ async function getLanyardData() {
             const hour = parseInt(malaysiaTime);
             
             // working time monday-F=friday, 8am-5pm
-            const isWorkingHours = (day >= 1 && day <= 5) && (hour >= 8 && hour < 17);
+            const isWorkingHours = (day >= 1 && day <= 3) && (hour >= 8 && hour < 17);
 
             /* 3. handle presence with logic overrides */
 
