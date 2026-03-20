@@ -42,11 +42,11 @@ async function getLanyardData() {
             }).format(new Date());
 
             const now = new Date();
-            const day = now.getDay();
+            const day = now.getDay(); // 0 is sunday, 6 is saturday
             const hour = parseInt(malaysiaTime);
             
-            // working time monday-F=friday, 8am-5pm
-            const isWorkingHours = (day >= 1 && day <= 3) && (hour >= 8 && hour < 17);
+            // Restricted to monday-friday, 8am-5pm
+            const isWorkingHours = (day >= 1 && day <= 5) && (hour >= 8 && hour < 17);
 
             /* 3. handle presence with logic overrides */
 
