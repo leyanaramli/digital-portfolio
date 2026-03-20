@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leyana's portfolio</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons-font@v13/font/simple-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="bento-grid">
+        <div class="card pic-box" id="profile-pic"></div>
+
+        <div class="card intro-box">
+            <h1>hello and goodday, i'm <span class="accent-text">leyana</span></h1>
+            <p>a random weirdo online who do coding for fun while i juggle with real life activities.</p>
+        </div>
+
+        <div class="card status-box activity-card" id="status-card">
+            <div class="status-header">
+                <div class="status-dot" id="status-dot"></div>
+                <p>status: <span id="current-mood">loading...</span></p>
+            </div>
+            
+            <div class="spotify-container" id="activity-container">
+                <div id="activity-icon-slot">
+                    <i data-lucide="coffee" class="spotify-icon"></i>
+                </div>
+                <div class="spotify-info">
+                    <p class="listening-label" id="activity-label">currently:</p>
+                    <p id="track-name" class="track-text">just chilling</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card socials-box">
+            <div class="social-list">
+                <a href="https://github.com/leyanaramli" target="_blank">
+                    <i class="si si-github"></i> <span>leyanaramli</span>
+                </a>
+                <a href="#" onclick="return false;">
+                    <i class="si si-discord"></i> <span>@_leyanaramli</span>
+                </a>
+                <a href="https://instagram.com/_leyanaramli" target="_blank">
+                    <i class="si si-instagram"></i> <span>@_leyanaramli</span>
+                </a>
+                <a href="https://facebook.com/leyanaramlii" target="_blank">
+                    <i class="si si-facebook"></i> <span>leyana ramli</span>
+                </a>
+                <a href="https://tiktok.com/@_leyanaramli" target="_blank">
+                    <i class="si si-tiktok"></i> <span>@_leyanaramli</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="card about-box">
+            <div class="section">
+                <p class="section-title">skills:</p>
+                <div class="skills-container">
+                    <span class="skill-pill">html</span>
+                    <span class="skill-pill">css</span>
+                    <span class="skill-pill">javascript</span>
+                    <span class="skill-pill">mysql</span>
+                    <span class="skill-pill">canva</span>
+                </div>
+            </div>
+
+            <div class="section" style="margin-top: 25px;">
+                <p class="section-title">past projects:</p>
+                <div class="project-links">
+                    <a href="#" target="_blank">◦ tuition website</a>
+                    <a href="#" target="_blank">◦ resort booking website</a>
+                    <a href="#" target="_blank">◦ lots of mini projects</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
